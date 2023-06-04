@@ -1,0 +1,8 @@
+{
+  "name": "stop-watch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:minjaeleee/stop_watch.git",
+  "author": "minjaeleee <dlalswo4602@naver.com>",
+  "license": "MIT"
+}
