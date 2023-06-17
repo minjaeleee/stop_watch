@@ -1,15 +1,21 @@
+import { useState } from 'react';
 import './App.css';
+import { useTimer } from './hooks/useTimer';
+import { Timer } from './components/Timer';
 
 function App() {
+  const { start, centisecond, isRunning } = useTimer()
+  const [time, setTime] = useState("00:00.00")
+
+
+  const onClickStart = () => {
+    start()
+  }
+
   return (
     <>
       <section className="w-fit bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col justify-center m-auto mt-36 max-w-sm">
-        <h1
-          id="timer"
-          className="text-5xl font-extrabold pb-8 text-center tracking-tighter break-words"
-        >
-          00:00.00
-        </h1>
+        <Timer />
         <div className="flex justify-between text-white pb-8 text-sm select-none">
           <button
             id="lap-reset-btn"
@@ -21,8 +27,8 @@ function App() {
             <p className="text-xs">L</p>
           </button>
           <button
-            id="start-stop-btn"
             className="bg-green-600 rounded-full w-16 h-16 relative flex flex-col justify-center items-center cursor-pointer shadow-md"
+            onClick={onClickStart}
           >
             <p id="start-stop-btn-label" className="text-base">
               시작
