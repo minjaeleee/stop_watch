@@ -28,16 +28,16 @@ function App() {
     const escKeyModalClose = (e) => {
       if (e.keyCode === 76) {
         //L 버튼 입력
-        console.log("L")
+        isRunning ? onClickLap() : onClickReset()
       }
       if (e.keyCode === 83) {
         //S 버튼 입력
-        console.log("S")
+        isRunning ? onClickPause() : onClickStart()
       }
     };
     window.addEventListener("keydown", escKeyModalClose);
     return () => window.removeEventListener("keydown", escKeyModalClose);
-  }, []);
+  });
 
   return (
     <>

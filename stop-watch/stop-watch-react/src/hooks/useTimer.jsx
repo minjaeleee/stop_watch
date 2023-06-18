@@ -33,6 +33,7 @@ export const useTimer = () => {
     setLapCount(0)
     setLaps([])
     setCentisecond(0)
+    setIsRunning(false)
     prevLap.current = 0
   }
   

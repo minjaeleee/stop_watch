@@ -12,9 +12,9 @@ export const Laps = ({laps}) => {
     <article className="text-gray-600 h-64 overflow-auto border-t-2">
     <ul>
       {
-        lapTime.map(lap => 
+        lapTime.map((lap,idx) => 
           <li 
-            key={lap[0]+lap[1]}
+            key={ `${lap[0]} + ${idx} + ${lap[1]}` }
             className="flex justify-between py-2 px-3 border-b-2"
           >
              <span>{`랩 ${lap[0]}`}</span> 
