@@ -22,5 +22,19 @@ export const useTimer = () => {
     setIsRunning(false)
   }
 
-  return { centisecond, start, pause, isRunning}
+  const createLap = () => {
+    setLapCount(prev => prev+1)
+    const lapTime = centisecond - prevLap.current
+    setLaps(prev => [[lapCount, lapTime], ...prev])
+    prevLap.current = centisecond
+  }
+
+  const reset = () => {
+    setLapCount(0)
+    setLaps([])
+    setCentisecond(0)
+    prevLap.current = 0
+  }
+  
+  return { centisecond, start, pause, createLap, reset, laps, isRunning}
 }
