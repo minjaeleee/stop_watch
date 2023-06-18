@@ -3,6 +3,7 @@ import { useTimer } from './hooks/useTimer';
 import { Timer } from './components/Timer';
 import { Buttons } from './components/Buttons';
 import { Laps } from './components/Laps';
+import { useEffect } from 'react';
 
 function App() {
   const { start, pause, centisecond, isRunning, createLap, laps, reset } = useTimer()
@@ -22,6 +23,21 @@ function App() {
   const onClickReset = () => {
     reset()
   }
+
+  useEffect(() => {
+    const escKeyModalClose = (e) => {
+      if (e.keyCode === 76) {
+        //L 버튼 입력
+        console.log("L")
+      }
+      if (e.keyCode === 83) {
+        //S 버튼 입력
+        console.log("S")
+      }
+    };
+    window.addEventListener("keydown", escKeyModalClose);
+    return () => window.removeEventListener("keydown", escKeyModalClose);
+  }, []);
 
   return (
     <>
