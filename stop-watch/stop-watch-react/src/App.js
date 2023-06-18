@@ -25,7 +25,7 @@ function App() {
   }
 
   useEffect(() => {
-    const escKeyModalClose = (e) => {
+    const keyDown = (e) => {
       if (e.keyCode === 76) {
         //L 버튼 입력
         isRunning ? onClickLap() : onClickReset()
@@ -35,8 +35,8 @@ function App() {
         isRunning ? onClickPause() : onClickStart()
       }
     };
-    window.addEventListener("keydown", escKeyModalClose);
-    return () => window.removeEventListener("keydown", escKeyModalClose);
+    window.addEventListener("keydown", keyDown);
+    return () => window.removeEventListener("keydown", keyDown);
   });
 
   return (
