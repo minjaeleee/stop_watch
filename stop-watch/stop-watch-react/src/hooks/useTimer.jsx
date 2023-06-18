@@ -14,8 +14,13 @@ export const useTimer = () => {
       setCentisecond((prev) => prev+1)
     }, 10)
     setTimeInterval(_interval)
-    setIsRunning(prev => !prev)
+    setIsRunning(true)
   }
 
-  return { centisecond, start, isRunning}
+  const pause = () => {
+    clearInterval(timeInterval)
+    setIsRunning(false)
+  }
+
+  return { centisecond, start, pause, isRunning}
 }

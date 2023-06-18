@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Timer = () => {
+export const Timer = ({centisecond}) => {
   const timeFormatting = (centisecond) => {
     // centisecond = 1/100 sec
     const formatString = num => num < 10 ? `0${num}` : num
@@ -12,10 +12,7 @@ export const Timer = () => {
   }
 
   return (
-    <h1
-    id="timer"
-    className="text-5xl font-extrabold pb-8 text-center tracking-tighter break-words"
-  >
+    <h1 className="text-5xl font-extrabold pb-8 text-center tracking-tighter break-words">
     {timeFormatting(centisecond)}
   </h1>
   )

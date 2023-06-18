@@ -1,37 +1,38 @@
-import { useState } from 'react';
 import './App.css';
 import { useTimer } from './hooks/useTimer';
 import { Timer } from './components/Timer';
 
 function App() {
-  const { start, centisecond, isRunning } = useTimer()
-  const [time, setTime] = useState("00:00.00")
-
+  const { start, pause, centisecond, isRunning } = useTimer()
 
   const onClickStart = () => {
     start()
   }
 
+  const onClickPause = () => {
+    pause()
+  }
+
+  const resetAndLap = isRunning ? "랩" : "리셋"
+  const startAndPause = isRunning ? "중단" : "시작"
+
   return (
     <>
       <section className="w-fit bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col justify-center m-auto mt-36 max-w-sm">
-        <Timer />
+        <Timer centisecond={centisecond} />
         <div className="flex justify-between text-white pb-8 text-sm select-none">
-          <button
-            id="lap-reset-btn"
-            className="bg-gray-600 rounded-full w-16 h-16 relative flex flex-col justify-center items-center cursor-pointer shadow-md "
-          >
+          <button className="bg-gray-600 rounded-full w-16 h-16 relative flex flex-col justify-center items-center cursor-pointer shadow-md ">
             <p id="lap-reset-btn-label" className="text-base">
-              리셋
+              {resetAndLap}
             </p>
             <p className="text-xs">L</p>
           </button>
           <button
-            className="bg-green-600 rounded-full w-16 h-16 relative flex flex-col justify-center items-center cursor-pointer shadow-md"
-            onClick={onClickStart}
+            className={`${isRunning ? "bg-red-600" : "bg-green-600"} rounded-full w-16 h-16 relative flex flex-col justify-center items-center cursor-pointer shadow-md`}
+            onClick={() => { isRunning ? onClickPause() : onClickStart() }}
           >
             <p id="start-stop-btn-label" className="text-base">
-              시작
+              {startAndPause}
             </p>
             <p className="text-xs">S</p>
           </button>
