@@ -1,8 +1,8 @@
 import './App.css';
 import { useTimer } from './hooks/useTimer';
 import { Timer } from './components/Timer';
-import { Buttons } from './components/Buttons';
-import { Laps } from './components/Laps';
+import Buttons from './components/Buttons';
+import Laps from './components/Laps';
 import { useEffect } from 'react';
 
 function App() {
