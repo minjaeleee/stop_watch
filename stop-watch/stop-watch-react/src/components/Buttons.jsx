@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-export const Buttons = ({
+const Buttons = ({
     isRunning, 
     onClickLap, 
     onClickReset, 
@@ -34,3 +34,5 @@ export const Buttons = ({
         </div>
   )
 }
+
+export default memo(Buttons);

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { timeFormatting } from '../utils/timeFormatting'
 
-export const Laps = ({laps}) => {
+const Laps = ({laps}) => {
   const [lapTime, setLapTime] = useState(laps)
   
   useEffect(()=>{
@@ -43,3 +43,5 @@ export const Laps = ({laps}) => {
   </article>
   )
 }
+
+export default memo(Laps)
